@@ -1,0 +1,6 @@
+node_modules
+.DS_Store
+package-lock.json
+
+src/lib/assets/g3d.min.txt.js
+src/lib/assets/gcanvas.min.txt.js

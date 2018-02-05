@@ -1,0 +1,25 @@
+{
+  "name": "g3d-playground",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {
+    "g3d": "^0.0.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "antd": "^3.1.0",
+    "react-ace": "^5.9.0",
+    "jquery": "^3.2.1",
+    "qrcode": "^1.0.0"
+  },
+  "devDependencies": {
+    "dalaran": "0.1.5",
+    "fs-extra": "^4.0.2",
+    "glob": "^7.1.2",
+    "gulp": "3.9.1",
+    "raw-loader": "^0.5.1",
+    "webpack": "^3.8.1"
+  },
+  "scripts": {  },
+  "keywords": [],
+  "author": "xieguanglei@hotmail.com"
+}
