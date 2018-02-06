@@ -62,7 +62,7 @@ const Layout = props => {
                 </div>
                 {
                     isEmbed ? 
-                    <div className="embed-button"><Button target="_blank" href={location.href.replace('?embed', '')}>View Full Version</Button></div> : 
+                    <div className="embed-button"><Button target="_blank" href={location.href.replace('?embed', '')} type="dashed">View Full Version</Button></div> : 
                     null
                 }
             </div>
