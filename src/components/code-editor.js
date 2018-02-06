@@ -18,7 +18,7 @@ class CodeEditor extends Component {
 
   render() {
 
-    let {code, onCodeChange, width, height} = this.props;
+    let {code, onCodeChange, width, height, isEmbed} = this.props;
 
     return (
       <div style={styles.container}>
@@ -30,8 +30,12 @@ class CodeEditor extends Component {
           width={`${width}px`}
           height={`${height}px`}
           value={code}
+          showGutter={isEmbed ? false : true}
           editorProps={{
             $blockScrolling: Infinity
+          }}
+          setOptions={{
+            fontSize: isEmbed ? 14 : 12
           }}
         />
       </div>

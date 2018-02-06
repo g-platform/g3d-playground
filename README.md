@@ -1,0 +1,1 @@
+This repo is the source code of [G3D Playground](https://gplatformteam.github.io/g3d-playground/docs/) website.

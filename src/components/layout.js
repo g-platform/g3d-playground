@@ -16,7 +16,6 @@ const query = (function () {
 })();
 const isEmbed = query.embed;
 
-
 const width = document.documentElement.clientWidth;
 const height = document.documentElement.clientHeight;
 
@@ -33,7 +32,7 @@ const rowStyle = {
     height: style.height - topStyle.height
 }
 const lStyle = {
-    width: isEmbed ? rowStyle.height : rowStyle.height * 0.7,
+    width: isEmbed ? 200 : rowStyle.height * 0.7,
     height: rowStyle.height
 }
 const rStyle = {
@@ -53,10 +52,10 @@ const Layout = props => {
             <div className="row" style={rowStyle}>
                 <div className="left" style={lStyle}>
                     {React.cloneElement(props.children[1], { width: lStyle.width, height: lStyle.width })}
-                    {isEmbed ? null : React.cloneElement(props.children[2], { width: lStyle.width, height: lStyle.height - lStyle.width })}
+                    {React.cloneElement(props.children[2], { width: lStyle.width, height: lStyle.height - lStyle.width })}
                 </div>
                 <div className="right" style={rStyle}>
-                    {React.cloneElement(props.children[3], { ...rStyle })}
+                    {React.cloneElement(props.children[3], { ...rStyle, isEmbed })}
                 </div>
                 <div className="preview">
                     {isEmbed ? null : props.children[4]}

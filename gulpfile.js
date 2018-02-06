@@ -5,7 +5,7 @@ const fs = require('fs-extra');
 
 const tasks = dalaran.applicationTasks({
     demo: './src',
-    dist: './dist',
+    dist: './doc',
     port: 3001,
     react: true,
     loaders: [{
