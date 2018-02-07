@@ -16,30 +16,41 @@ import samples from './samples/index';
 
 
 
-const hash = (function () {
-    const query = location.hash.substr(1);
-    const result = {};
-    query.split('&').forEach(function (part) {
-        const item = part.split('=');
-        result[item[0]] = decodeURIComponent(item[1]);
-    });
-    return result;
-})();
-const itemPath = hash.item;
+
+
+function getItemPath() {
+    const hash = (function () {
+        const query = location.hash.substr(1);
+        const result = {};
+        query.split('&').forEach(function (part) {
+            const item = part.split('=');
+            result[item[0]] = decodeURIComponent(item[1]);
+        });
+        return result;
+    })();
+    return hash.item;
+}
+
+const itemPath = getItemPath();
+
 
 class App extends Component {
 
     state = {
         code: itemPath ?
-            property(itemPath)(samples):
-            samples['guide'][
-            Object.keys(samples['guide'])[0]
-            ],
+            property(['guide', itemPath])(samples) :
+            samples['guide']['first-steps'],
         error: null
     };
 
     componentDidMount() {
 
+        window.addEventListener('hashchange', () => {
+            const itemPath = getItemPath();
+            this.setState({
+                code: property(['guide', itemPath])(samples)
+            })
+        })
     }
 
     onCodeChange = debounce((code) => {
@@ -59,8 +70,13 @@ class App extends Component {
     }
 
     onClickMenu = key => {
-        const code = property(key.split('/'))(samples);
-        this.setState({ code });
+        if (key.startsWith('guide')) {
+            const [scope, item] = key.split('/');
+            location.hash = `item=${item}`;
+        } else {
+            const code = property(key.split('/'))(samples);
+            this.setState({ code });
+        }
     }
 
     render() {
