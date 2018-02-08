@@ -28,13 +28,13 @@ function run(G3D, canvas) {
         image.src = url;
     }
 
-    loadImage(
-        'https://img.alicdn.com/tfs/TB1apiEb8HH8KJjy0FbXXcqlpXa-1024-1024.png',
-        function (image) {
-            mesh.materials.default.texture.image = image;
-            mesh.materials.default.source = G3D.Material.TEXTURE;
-        }
-    )
+    // loadImage(
+    //     'https://img.alicdn.com/tfs/TB1apiEb8HH8KJjy0FbXXcqlpXa-1024-1024.png',
+    //     function (image) {
+    //         mesh.materials.default.texture.image = image;
+    //         mesh.materials.default.source = G3D.Material.TEXTURE;
+    //     }
+    // )
 
     return function () {
         mesh.rotation.y += 1;
